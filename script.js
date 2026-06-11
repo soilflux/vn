@@ -33,11 +33,6 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-document.getElementById("storyBox").addEventListener("click", function () {
-    state.paused = !state.paused;
-    if (!state.paused) advance();
-});
-
 function advance() {
     const currentIndex = state[state.currentLocation].currentIndex;
     const currentPrompt = linearDialogue[state.currentLocation].dialogues[currentIndex];
@@ -48,7 +43,7 @@ function advance() {
 
     state[state.currentLocation].currentIndex += 1;
 
-    const delay = text.length/5*60/config.autoTextWpm*1000;
+    const delay = text.length / 5 * 60 / config.autoTextWpm * 1000;
     const minimum = config.autoTextMinimum;
     setTimeout(autoText, Math.max(minimum, delay));
 }
@@ -92,3 +87,68 @@ function advanceDialogue(event) {
         state.currentIndex = 0;
     }
 }
+
+const dialogueBox = document.getElementById('storyBox');
+
+let startX = 0;
+let startY = 0;
+let endX = 0;
+let endY = 0;
+let isDragging = false;
+
+dialogueBox.addEventListener('pointerdown', (e) => {
+    startX = e.clientX;
+    startY = e.clientY;
+    isDragging = true;
+});
+
+window.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+
+    endX = e.clientX;
+    endY = e.clientY;
+    isDragging = false;
+    handleGesture();
+});
+
+function handleGesture() {
+    const xDiff = endX - startX;
+    const yDiff = endY - startY;
+    const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+
+    const swipeThreshold = 25;
+    const tapThreshold = 10;
+
+    if (distance < tapThreshold) {
+        onTap();
+    } else if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (Math.abs(xDiff) > swipeThreshold) {
+            if (xDiff < 0) {
+                onSwipeLeft();
+            } else {
+                onSwipeRight();
+            }
+        }
+    } else {
+        if (Math.abs(yDiff) > swipeThreshold) {
+            if (yDiff < 0) {
+                onSwipeUp();
+            } else {
+                onSwipeDown();
+            }
+        }
+    }
+}
+
+function onTap() {
+    state.paused = !state.paused;
+    if (!state.paused) advance();
+}
+
+function onSwipeUp() {
+    console.log("Swipe Up detected!");
+}
+
+function onSwipeLeft() {}
+function onSwipeDown() {}
+function onSwipeRight() {}

@@ -35,7 +35,7 @@ document.addEventListener('keydown', function (event) {
 
 document.getElementById("storyBox").addEventListener("click", function () {
     state.paused = !state.paused;
-    advance();
+    if (!state.paused) advance();
 });
 
 function advance() {

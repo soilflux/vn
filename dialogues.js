@@ -25,6 +25,7 @@ const linearDialogue = {
             ["yuki","and people are so good about phrasing things in a way that yields clear, nuanced information?"],
             ["kaito","Yes."],
             ["yuki",";3"],
+            /*
             ["kaito",""],
             ["yuki",""],
             ["kaito",""],
@@ -34,6 +35,7 @@ const linearDialogue = {
             ["kaito",""],
             ["yuki",""],
             ["kaito",""],
+            */
         ],
     }
 }

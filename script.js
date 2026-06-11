@@ -34,8 +34,9 @@ document.addEventListener('keydown', function (event) {
 });
 
 function advance() {
-    const currentIndex = state[state.currentLocation].currentIndex;
-    const currentPrompt = linearDialogue[state.currentLocation].dialogues[currentIndex];
+    const currentLocation = state.currentLocation;
+    const currentIndex = state[currentLocation].currentIndex;
+    const currentPrompt = linearDialogue[currentLocation].dialogues[currentIndex];
     const speaker = currentPrompt[0];
     const text = currentPrompt[1];
     storyBox.setAttribute("data-character", speaker);
@@ -46,10 +47,28 @@ function advance() {
     const delay = text.length / 5 * 60 / config.autoTextWpm * 1000;
     const minimum = config.autoTextMinimum;
     setTimeout(autoText, Math.max(minimum, delay));
+    updateHistory();
 }
 
 function autoText() {
     if (!state.paused) advance();
+}
+
+function updateHistory() {
+    let history = "";
+
+    const currentLocation = state.currentLocation;
+    const currentIndex = state[currentLocation].currentIndex;
+    const dialogues = linearDialogue[currentLocation].dialogues;
+    for (const [index, value] of dialogues.entries()) {
+        if (index === currentIndex) {
+            document.getElementById("historyBox").innerHTML = history;
+            break;
+        }
+        const speaker = value[0];
+        const text = value[1];
+        history += `<span class="${speaker.toLowerCase()}">${text}</span><br>`;
+    }
 }
 
 function nextInvestigateDialogue(el, location) {
@@ -146,9 +165,12 @@ function onTap() {
 }
 
 function onSwipeUp() {
-    console.log("Swipe Up detected!");
+    const historyBox = document.getElementById('historyBox');
+    historyBox.scrollTop = historyBox.scrollHeight;
+    historyBox.style.visibility = "visible";
 }
-
-function onSwipeLeft() {}
-function onSwipeDown() {}
-function onSwipeRight() {}
+function onSwipeDown() {
+    document.getElementById("historyBox").style.visibility = "hidden";
+}
+function onSwipeLeft() { }
+function onSwipeRight() { }

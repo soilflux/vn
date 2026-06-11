@@ -35,7 +35,7 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 375px;
+  width: 97vw;
   min-height:100px;
   padding: 10px;
   color: white;

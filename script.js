@@ -1,8 +1,6 @@
 const config = {
-    use24Hour: false,
-    interval: 15,
-    autoTextDelay: 18,
-    autoTextMinimum: 300,
+    autoTextDelay: 30,
+    autoTextMinimum: 400,
 };
 
 const state = {

@@ -1,11 +1,14 @@
 const config = {
     use24Hour: false,
-    interval: 15
+    interval: 15,
+    autoTextDelay: 18,
+    autoTextMinimum: 300,
 };
 
 const state = {
     currentDialogue: [],
-    currentIndex: 0
+    currentIndex: 0,
+    paused: false,
 };
 
 const locations = ["cafe"];
@@ -32,6 +35,11 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+document.getElementById("storyBox").addEventListener("click", function () {
+    state.paused = !state.paused;
+    advance();
+});
+
 function advance() {
     const currentIndex = state[state.currentLocation].currentIndex;
     const currentPrompt = linearDialogue[state.currentLocation].dialogues[currentIndex];
@@ -41,6 +49,14 @@ function advance() {
     document.getElementById("storyBox").innerHTML = text;
 
     state[state.currentLocation].currentIndex += 1;
+
+    const delay = text.length * config.autoTextDelay;
+    const minimum = config.autoTextMinimum;
+    setTimeout(autoText, Math.max(minimum, delay));
+}
+
+function autoText() {
+    if (!state.paused) advance();
 }
 
 function nextInvestigateDialogue(el, location) {

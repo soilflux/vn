@@ -37,7 +37,7 @@ body::before {
 
   width: 98vw;
   min-height: 10vh;
-  padding: 2vw;
+  padding: 1vh 2vw;
   color: white;
   font-size: 20px;
   text-align: left;
@@ -71,7 +71,7 @@ body::before {
 
 #historyBox {
   position: fixed;
-  top: 1%;
+  top: 1vh;
   left: 50%;
   transform: translate(-50%, -0%);
   display: block;
@@ -84,7 +84,7 @@ body::before {
   overflow-x: hidden;
 
   box-sizing: border-box;
-  padding: 0.5vw;
+  padding: 0.5vh 1vw;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -115,7 +115,7 @@ body::before {
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
-  padding: 2px 16px;
+  padding: 0.2vh 1.6vw;
   transition: opacity 0.2s;
 }
 

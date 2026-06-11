@@ -1,5 +1,5 @@
 const config = {
-    autoTextDelay: 30,
+    autoTextWpm: 300,
     autoTextMinimum: 400,
 };
 
@@ -48,7 +48,7 @@ function advance() {
 
     state[state.currentLocation].currentIndex += 1;
 
-    const delay = text.length * config.autoTextDelay;
+    const delay = text.length/5*60/config.autoTextWpm*1000;
     const minimum = config.autoTextMinimum;
     setTimeout(autoText, Math.max(minimum, delay));
 }

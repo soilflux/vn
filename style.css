@@ -37,7 +37,7 @@ body::before {
 
   width: 98vw;
   min-height: 10vh;
-  padding: 10px;
+  padding: 2vw;
   color: white;
   font-size: 20px;
   text-align: left;
@@ -48,8 +48,8 @@ body::before {
   justify-content: left;
   align-items: top;
 
-  border: 6px solid #ccc;
-  border-radius: 8px;
+  border: 1.3vw solid #ccc;
+  border-radius: 2vw;
 
   touch-action: none;
   user-select: none;
@@ -84,7 +84,7 @@ body::before {
   overflow-x: hidden;
 
   box-sizing: border-box;
-  padding: 5px;
+  padding: 0.5vw;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

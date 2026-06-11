@@ -2,7 +2,7 @@
 
 body {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -31,7 +31,7 @@ body::before {
 
 #storyBox {
   position: fixed;
-  top: 45svh; 
+  top: 50svh; 
   left: 50svw;
   
   transform: translate(-50%, 0);
@@ -79,7 +79,7 @@ body::before {
   display: block;
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.75);
-  height: 44svh;
+  height: 49svh;
   width: 97svw;
 
   overflow-y: auto;

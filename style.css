@@ -31,11 +31,13 @@ body::before {
 
 #storyBox {
   position: fixed;
-  top: 50svh;
+  top: 45svh; 
   left: 50svw;
-  transform: translate(-50%, -50%);
+  
+  transform: translate(-50%, 0);
 
-  width: 98svw;
+  width: 98svw; 
+  
   min-height: 10svh;
   padding: 1svh 2svw;
   color: white;
@@ -45,8 +47,8 @@ body::before {
   box-sizing: border-box;
 
   display: flex;
-  justify-content: left;
-  align-items: top;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   border: 1.3svw solid #ccc;
   border-radius: 2svw;

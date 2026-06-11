@@ -35,9 +35,9 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 98vw;
-  min-height: 10vh;
-  padding: 1vh 2vw;
+  width: 98svw;
+  min-height: 10svh;
+  padding: 1svh 2svw;
   color: white;
   font-size: 20px;
   text-align: left;
@@ -48,8 +48,8 @@ body::before {
   justify-content: left;
   align-items: top;
 
-  border: 1.3vw solid #ccc;
-  border-radius: 2vw;
+  border: 1.3svw solid #ccc;
+  border-radius: 2svw;
 
   touch-action: none;
   user-select: none;
@@ -71,20 +71,20 @@ body::before {
 
 #historyBox {
   position: fixed;
-  top: 1vh;
+  top: 1svh;
   left: 50%;
   transform: translate(-50%, -0%);
   display: block;
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.75);
-  height: 44vh;
-  width: 97vw;
+  height: 44svh;
+  width: 97svw;
 
   overflow-y: auto;
   overflow-x: hidden;
 
   box-sizing: border-box;
-  padding: 0.5vh 1vw;
+  padding: 0.5svh 1svw;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -115,7 +115,7 @@ body::before {
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
-  padding: 0.2vh 1.6vw;
+  padding: 0.2svh 1.6svw;
   transition: opacity 0.2s;
 }
 

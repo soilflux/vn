@@ -7,7 +7,7 @@ const linearDialogue = {
     },
     "cafe": {
         dialogues: [
-            ["kaito", "what are cats for? ;o"],
+            ["kaito", "what are cats for?"],
             ["yuki", "petting c;"],
             ["kaito","Cats and Cafes would make a good combo ;o"],
             ["yuki","yes ;3"],

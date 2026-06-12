@@ -38,8 +38,8 @@ body::before {
 
   width: 98svw; 
   
-  min-height: 10svh;
-  padding: 1svh 2svw;
+  min-height: 11svh;
+  padding: 0svh 1svw;
   color: white;
   font-size: 20px;
   text-align: left;
